@@ -9,6 +9,7 @@ import { BlogArticleComponent } from './components/blog-article/blog-article.com
 import { BlogCommentsComponent } from './components/blog-comments/blog-comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

@@ -1,3 +1,7 @@
-<p>
-  blog-article works!
-</p>
+<article *ngIf="blogPost">
+  <h1>{{blogPost.title}}</h1>
+  <h2>{{blogPost.author}}</h2>
+  <em>{{blogPost.postDate}}</em>
+  <section [innerHTML]="blogPost.content"></section>
+  <app-blog-comments [comments]="blogComments"></app-blog-comments>
+</article>
