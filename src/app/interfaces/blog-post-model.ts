@@ -1,9 +1,9 @@
 export interface BlogPostModel {
-    id: Number;
-    author: String;
-    content: String;
-    description: String;
-    publishDate: Date;
-    slug: String;
-    title: String;
+    id: number;
+    author: string;
+    content: string;
+    description: string;
+    publish_date: Date;
+    slug: string;
+    title: string;
 }

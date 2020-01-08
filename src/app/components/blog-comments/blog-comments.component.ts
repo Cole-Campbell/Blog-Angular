@@ -8,16 +8,10 @@ import { CommentModel } from 'src/app/interfaces/comment-model';
 })
 export class BlogCommentsComponent implements OnInit {
   @Input() comments: CommentModel[];
+  @Input() subComments: CommentModel[];
   constructor() { }
 
   ngOnInit() {
-    if (this.comments) {
-    this.comments = this.sortComments();
-    }
-  }
-
-  private sortComments() {
-    return this.comments.sort((a, b) => {return a.date > b.date ? 1 : -1});
   }
 
 }

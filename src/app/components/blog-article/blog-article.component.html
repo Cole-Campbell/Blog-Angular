@@ -1,7 +1,6 @@
-<article *ngIf="blogPost">
-  <h1>{{blogPost.title}}</h1>
-  <h2>{{blogPost.author}}</h2>
-  <em>{{blogPost.postDate}}</em>
-  <section [innerHTML]="blogPost.content"></section>
-  <app-blog-comments [comments]="blogComments"></app-blog-comments>
+<article *ngIf="blogPost" class="container">
+  <h1 class="col-12">{{blogPost.title}}</h1>
+  <em class="col-12 text-muted">{{blogPost.author}} - {{blogPost.publish_date}}</em>
+  <section class="col-12" [innerHTML]="blogPost.content"></section>
+  <app-blog-comments class="col-12" [comments]="blogComments" [subComments]="blogSubComments"></app-blog-comments>
 </article>

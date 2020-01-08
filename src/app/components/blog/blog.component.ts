@@ -11,14 +11,11 @@ import { Router } from '@angular/router';
 export class BlogComponent implements OnInit {
 
   blogItems: BlogPostModel[] = [];
-  constructor(private apiService: ApiService,
-    private router: Router) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.apiService.getPosts().subscribe(result => {
-      this.blogItems = result.sort((a, b) => {
-        return a.publishDate > b.publishDate ? 1 : -1;
-      });
+      this.blogItems = result;
     });
   }
 }

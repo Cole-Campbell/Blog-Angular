@@ -10,6 +10,7 @@ import { BlogCommentsComponent } from './components/blog-comments/blog-comments.
 import { CommentComponent } from './components/comment/comment.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     BlogComponent,
     BlogArticleComponent,
     BlogCommentsComponent,
-    CommentComponent
+    CommentComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

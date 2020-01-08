@@ -1,1 +1,9 @@
-<app-blog-post *ngFor="let blogItem of blogItems" [postData]="blogItem" routerLink="/post/{{blogItem.slug}}/{{blogItem.id}}"></app-blog-post>
+<section class="container">
+        <h1>Read The Latest Articles</h1>
+    <div class="row d-flex justify-content-between">
+        <app-blog-post class="my-2 col-md-4 p-0"
+                        *ngFor="let blogItem of blogItems | slice:0:3"
+                        [postData]="blogItem">
+        </app-blog-post>
+    </div>
+</section>

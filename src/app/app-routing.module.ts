@@ -5,7 +5,7 @@ import { BlogArticleComponent } from './components/blog-article/blog-article.com
 
 const routes: Routes = [
   { path: '', component: BlogComponent },
-  { path: 'post/:id', component: BlogArticleComponent },
+  { path: ':id/:blogSlug', component: BlogArticleComponent },
   { path: '**', component: BlogComponent }
 ];
 

@@ -1,3 +1,7 @@
-<h2>{{postData.title}}</h2>
-<em>{{postData.author}}</em>
-<p>{{postData.description}}</p>
+<section routerLink="/{{postData.id}}/{{postData.slug}}" class="card rounded-0 p-2">
+    <div class="card-body">
+        <h2>{{postData.title}}</h2>
+        <em>{{postData.author}} - {{postData.publish_date | date : shortDate}}</em>
+        <p>{{postData.description}}</p>
+    </div>
+</section>
