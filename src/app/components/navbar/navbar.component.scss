@@ -1,0 +1,18 @@
+@import '../../../assets/colours';
+header {
+    background-color: $dark-gray;
+}
+
+
+a {
+    color: $white;
+    text-decoration: none;
+    transition: all .1s;
+    &:hover {
+        color: $light-purple;
+    }
+}
+
+.active {
+    color: $light-purple;
+}

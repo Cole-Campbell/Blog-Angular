@@ -1,11 +1,14 @@
+@import '../../../assets/colours';
+
 .card {
-    background-color: #853c38;
-    color: white;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+    background-color: $white;
+    border: 1px solid $dark-gray;
+    box-shadow: 1px 1px 1px $faded-gray;
     transition: .5s;
+
     &:hover {
         cursor: pointer;
-        box-shadow: 3px 3px 3px rgba(0,0,0,.25);
+        box-shadow: 3px 3px 3px $faded-purple;
         transform: scale(1.02, 1.02);
         z-index: 1;
     }
@@ -13,4 +16,8 @@
     .card-body :last-child {
         margin-top: 1rem;
     }
+    h3 {
+        font-size: 1rem;
+    }
+    
 }

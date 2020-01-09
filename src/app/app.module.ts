@@ -11,6 +11,8 @@ import { CommentComponent } from './components/comment/comment.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     BlogArticleComponent,
     BlogCommentsComponent,
     CommentComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    NavbarComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

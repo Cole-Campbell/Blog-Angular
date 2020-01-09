@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/colours';
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    background-color: #343434;
+    color: $dark-gray;
     font-size: 16px;
 }
 
@@ -15,10 +16,4 @@ h1 {
 
 h2 {
     font-size: 2rem;
-}
-
-.container {
-    background-color: #f8f8f8;
-    position: relative;
-    min-height: 100vh;
 }
