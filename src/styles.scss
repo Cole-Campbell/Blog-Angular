@@ -17,3 +17,13 @@ h1 {
 h2 {
     font-size: 2rem;
 }
+
+.btn {
+    border-radius: 0;
+    color: $white;
+    background-color: $dark-purple;
+    &:hover {
+        color: $white;
+        background-color: $light-purple;
+    }
+}
