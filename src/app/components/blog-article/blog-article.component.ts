@@ -11,7 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./blog-article.component.scss']
 })
 export class BlogArticleComponent implements OnInit {
-  private blogId: number;
+  private blogId: string;
   public blogPost: BlogPostModel;
   public blogComments: CommentModel[];
   public blogSubcomments: CommentModel[];
@@ -30,20 +30,10 @@ export class BlogArticleComponent implements OnInit {
     });
 
     this.apiService.getPostComments(this.blogId).subscribe(result => {
-      this.blogComments = result.filter(comment => comment.parent_id === null);
-      this.blogSubcomments = result.filter(comment => comment.parent_id !== null);
+      if (result) {
+        this.blogComments = result;
+      }
     });
-  }
-
-  setMetaData(data: BlogPostModel) {
-    const metaData = [
-      {name: 'title', content: data.title},
-      {name: 'description', content: data.description},
-      {name: 'author', content: data.author}
-    ]
-
-    metaData.map(data => this.meta.addTag(data));
-    this.title.setTitle(data.title);
   }
 
   createComment(comment: CommentModel) {
@@ -52,6 +42,17 @@ export class BlogArticleComponent implements OnInit {
 
   updateComment(comment: CommentModel) {
     this.apiService.updatePostComment(this.blogId, comment);
+  }
+
+  private setMetaData(data: BlogPostModel) {
+    const metaData = [
+      {name: 'title', content: data.title},
+      {name: 'description', content: data.description},
+      {name: 'author', content: data.author}
+    ]
+
+    this.meta.addTags(metaData);
+    this.title.setTitle(data.title);
   }
 
 }

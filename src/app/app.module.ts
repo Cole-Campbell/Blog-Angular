@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { DataConversionPipe } from './pipes/data-conversion/data-conversion.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     CommentComponent,
     CommentFormComponent,
     NavbarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    DataConversionPipe
   ],
   imports: [
     BrowserModule,

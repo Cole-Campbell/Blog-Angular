@@ -7,12 +7,23 @@ header {
 a {
     color: $white;
     text-decoration: none;
-    transition: all .1s;
+    transition: all .2s;
     &:hover {
-        color: $light-purple;
+        color: $dark-purple;
+    }
+}
+
+.btn {
+    border: 1px solid transparent;
+    color: $white;
+    background-color: transparent;
+    &:hover {
+        @extend .active;
     }
 }
 
 .active {
-    color: $light-purple;
+    border: 1px solid $dark-purple;
+    color: $dark-purple;
+    background-color: $white;
 }

@@ -1,5 +1,5 @@
 export interface CommentModel {
-    id: number;
+    id: string;
     content: string;
     date: Date;
     parent_id: number;

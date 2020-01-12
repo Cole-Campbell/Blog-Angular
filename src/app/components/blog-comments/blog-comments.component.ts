@@ -14,4 +14,8 @@ export class BlogCommentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  getSubcomments(parentId) {
+    return this.subComments.filter(comment => comment.parent_id === parentId);
+  }
+
 }

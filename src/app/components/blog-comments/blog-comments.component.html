@@ -1,2 +1,10 @@
-<app-comment-form></app-comment-form>
-<app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+<h2>Comments</h2>
+<ng-template #List let-items >
+    <ul>
+      <li *ngFor="let item of items">
+          <app-comment [comment]="item"></app-comment>
+          <ng-container *ngTemplateOutlet="List; context:{ $implicit: item.comments }"></ng-container>
+      </li>
+  </ul>
+</ng-template>
+<ng-container *ngTemplateOutlet="List; context:{$implicit: comments | dataConversion }"></ng-container>

@@ -1,6 +1,15 @@
-<article *ngIf="blogPost" class="container">
-  <h1 class="col-12">{{blogPost.title}}</h1>
-  <em class="col-12 text-muted">{{blogPost.author}} - {{blogPost.publish_date}}</em>
-  <section class="col-12" [innerHTML]="blogPost.content"></section>
-  <app-blog-comments class="col-12" [comments]="blogComments" [subComments]="blogSubComments"></app-blog-comments>
-</article>
+  <article *ngIf="blogPost" class="container">
+    <header class="jumbotron rounded-0">
+      <h1 class="col-12">{{blogPost.title | titlecase}}</h1>
+      <em class="col-12">{{blogPost.author}} - {{blogPost.publish_date | date :shortDate}}</em>
+    </header>
+    <section class="row">
+      <p class="col-12" [innerHTML]="blogPost.content"></p>
+      <hr class="col-12"/>
+    </section>
+    <section class="row">
+      <!-- <app-blog-comments class="col-12" [comments]="blogComments | "></app-blog-comments> -->
+      <app-blog-comments *ngIf="blogComments" class="col-12" [comments]="blogComments"></app-blog-comments>
+      <app-comment-form class="col-12"></app-comment-form>
+    </section>
+  </article>
