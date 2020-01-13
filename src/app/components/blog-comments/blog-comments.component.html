@@ -2,7 +2,7 @@
 <ng-template #List let-items >
     <ul>
       <li *ngFor="let item of items">
-          <app-comment [comment]="item"></app-comment>
+          <app-comment [comment]="item" (commentUpdate)="updateComment($event)"></app-comment>
           <ng-container *ngTemplateOutlet="List; context:{ $implicit: item.comments }"></ng-container>
       </li>
   </ul>

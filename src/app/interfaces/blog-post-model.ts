@@ -3,7 +3,7 @@ export interface BlogPostModel {
     author: string;
     content: string;
     description: string;
-    publish_date: Date;
+    publish_date: string;
     slug: string;
     title: string;
 }

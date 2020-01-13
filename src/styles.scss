@@ -22,9 +22,14 @@ h2 {
     border-radius: 0;
     color: $white;
     background-color: $dark-purple;
-    border: 1px solid $white;
     &:hover {
         color: $white;
         background-color: $light-purple;
     }
+}
+
+.btn-outline {
+    color: $dark-purple;
+    background-color: $white;
+    border-color: $dark-purple;
 }

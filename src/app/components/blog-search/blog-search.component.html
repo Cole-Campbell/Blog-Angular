@@ -1,0 +1,14 @@
+<article class="container">
+    <section *ngIf="!posts.length">
+        <h1 class="text-center mt-5">No Results Found</h1>
+    </section>
+    <section class="mt-3" *ngIf="posts.length">
+        <h1>Search Results</h1>
+        <section class="row d-flex justify-content-between">
+            <app-blog-post class="d-flex my-2 col-xl-4 col-lg-6 flex-item-stretch flex-1"
+                            *ngFor="let blogItem of posts"
+                            [postData]="blogItem">
+            </app-blog-post>
+        </section>
+    </section>
+</article>

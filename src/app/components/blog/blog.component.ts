@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { BlogPostModel } from 'src/app/interfaces/blog-post-model';
-import { Router } from '@angular/router';
+import { ApiService } from '../../services/api/api.service';
+import { BlogPostModel } from '../../interfaces/blog-post-model';
+
 import { Meta } from '@angular/platform-browser';
 
 @Component({

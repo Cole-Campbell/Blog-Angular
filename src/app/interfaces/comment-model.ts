@@ -1,8 +1,8 @@
 export interface CommentModel {
-    id: string;
+    id?: number;
     content: string;
-    date: Date;
-    parent_id: number;
+    date: string;
+    parent_id?: number;
     postId: number;
     user: string;
 }

@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CommentModel } from '../../interfaces/comment-model';
 
 @Pipe({
   name: 'dataConversion'
@@ -7,7 +6,6 @@ import { CommentModel } from '../../interfaces/comment-model';
 export class DataConversionPipe implements PipeTransform {
 
   transform(array: any[], id: string = 'id', parentId: string = 'parent_id', rootValue: any = null) {
-    console.log(array);
     return this.filterComments(array, id, parentId, rootValue);
   }
 

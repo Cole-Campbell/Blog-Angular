@@ -1,9 +1,26 @@
-<form class="d-flex flex-column">
+<form [formGroup]="commentForm" class="d-flex flex-column" (ngSubmit)="onSubmit()">
     <label>Display Name
-        <input class="form-control rounded-0 w-100" type="text"/>
+        <input class="form-control rounded-0 w-100" formControlName="user" type="text"/>
     </label>
+    <div *ngIf="commentForm.controls['user'].invalid && (commentForm.controls['user'].dirty || commentForm.controls['user'].touched)" class="alert alert-danger">
+        <div *ngIf="commentForm.controls['user'].errors.required">
+            Display Name is required
+        </div>
+        <div *ngIf="commentForm.controls['user'].errors.maxlength">
+            Display Name cannot be longer than 100 characters    
+        </div>
+    </div>
     <label class="w-100">Comment
-        <textarea class="form-control rounded-0" aria-label="Comment"></textarea>
+        <textarea class="form-control rounded-0" formControlName="comment" aria-label="Comment"></textarea>
     </label>
-    <button class="btn">Comment</button>
+    <div *ngIf="commentForm.controls['comment'].invalid && (commentForm.controls['comment'].dirty || commentForm.controls['comment'].touched)" class="alert alert-danger">
+        <div *ngIf="commentForm.controls['comment'].errors.required">
+            A Comment is required
+        </div>
+        <div *ngIf="commentForm.controls['comment'].errors.maxlength">
+            A Comment cannot be longer than 1000 characters
+        </div>
+    </div>
+    <button class="btn" [disabled]="commentForm.invalid" type="submit">Comment</button>
+    <button *ngIf="canCloseForm" class="btn btn-outline mt-2" (click)="close()">Close</button>
 </form>

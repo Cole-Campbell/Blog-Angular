@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
-import { BlogPostModel } from 'src/app/interfaces/blog-post-model';
-import { CommentModel } from 'src/app/interfaces/comment-model';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api/api.service';
+import { BlogPostModel } from '../../interfaces/blog-post-model';
+import { CommentModel } from '../../interfaces/comment-model';
 import { Meta, Title } from '@angular/platform-browser';
+import { CommentService } from '../../services/comment/comment.service';
 
 @Component({
   selector: 'app-blog-article',
@@ -11,37 +12,48 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./blog-article.component.scss']
 })
 export class BlogArticleComponent implements OnInit {
-  private blogId: string;
+  private blogId: number;
   public blogPost: BlogPostModel;
   public blogComments: CommentModel[];
   public blogSubcomments: CommentModel[];
 
   constructor(private route: ActivatedRoute,
               private apiService: ApiService,
+              private commentService: CommentService,
               private meta: Meta,
               private title: Title) {
     this.blogId = this.route.snapshot.params.id;
   }
 
   ngOnInit() {
+    this.commentService.comments.subscribe(result => this.blogComments = result);
     this.apiService.getPost(this.blogId).subscribe(result => {
       this.blogPost = result;
       this.setMetaData(result);
     });
 
-    this.apiService.getPostComments(this.blogId).subscribe(result => {
-      if (result) {
-        this.blogComments = result;
+    this.commentService.loadComments(this.blogId);
+  }
+
+  updateComment(comment) {
+    switch(comment.commentType) {
+      case 'CREATE': {
+        this.createComment(comment.comment);
+        break;
       }
-    });
+      case 'UPDATE': {
+        this.editComment(comment.comment);
+      }
+    }
   }
 
-  createComment(comment: CommentModel) {
-    this.apiService.createPostComment(this.blogId, comment);
+  private createComment(comment: CommentModel) {
+    comment.postId = this.blogId;
+    this.commentService.createComment(comment);
   }
 
-  updateComment(comment: CommentModel) {
-    this.apiService.updatePostComment(this.blogId, comment);
+  private editComment(comment: CommentModel) {
+    this.commentService.updateComment(comment);
   }
 
   private setMetaData(data: BlogPostModel) {

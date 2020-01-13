@@ -6,3 +6,11 @@ h5 {
 em {
     font-size: .9em;
 }
+
+a {
+    cursor: pointer;
+    color: $dark-purple;
+    &:hover {
+        color: $light-purple;
+    }
+}

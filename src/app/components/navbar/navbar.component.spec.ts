@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +11,15 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule
+      ],
+      declarations: [
+        NavbarComponent,
+        SearchBarComponent
+      ]
     })
     .compileComponents();
   }));

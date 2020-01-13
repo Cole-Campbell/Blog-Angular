@@ -9,11 +9,13 @@ import { BlogArticleComponent } from './components/blog-article/blog-article.com
 import { BlogCommentsComponent } from './components/blog-comments/blog-comments.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { DataConversionPipe } from './pipes/data-conversion/data-conversion.pipe';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { BlogSearchComponent } from './components/blog-search/blog-search.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +28,17 @@ import { DataConversionPipe } from './pipes/data-conversion/data-conversion.pipe
     CommentFormComponent,
     NavbarComponent,
     SearchBarComponent,
-    DataConversionPipe
+    DataConversionPipe,
+    BlogSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,21 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { CommentModel } from 'src/app/interfaces/comment-model';
 
 @Component({
   selector: 'app-blog-comments',
   templateUrl: './blog-comments.component.html',
-  styleUrls: ['./blog-comments.component.scss']
+  styleUrls: ['./blog-comments.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogCommentsComponent implements OnInit {
   @Input() comments: CommentModel[];
-  @Input() subComments: CommentModel[];
+  @Output() commentUpdate = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
-  getSubcomments(parentId) {
-    return this.subComments.filter(comment => comment.parent_id === parentId);
+  updateComment(updateObject: any) {
+    this.commentUpdate.emit(updateObject);
   }
 
 }
