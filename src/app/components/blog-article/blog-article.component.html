@@ -1,14 +1,25 @@
-  <article *ngIf="blogPost" class="container">
-    <header class="jumbotron rounded-0">
-      <h1 class="col-12">{{blogPost.title | titlecase}}</h1>
-      <em class="col-12">{{blogPost.author}} - {{blogPost.publish_date | date :shortDate}}</em>
-    </header>
-    <section class="row">
-      <p class="col-xl-10 offset-xl-1" [innerHTML]="blogPost.content"></p>
-      <hr class="col-xl-10 offset-xl-1"/>
-    </section>
-    <section class="row">
-      <app-blog-comments *ngIf="blogComments" class="col-xl-10 offset-xl-1" [comments]="blogComments" (commentUpdate)="updateComment($event)"></app-blog-comments>
-      <app-comment-form class="col-xl-10 offset-xl-1" (updateComment)="updateComment($event)" [canCloseForm]="false"></app-comment-form>
-    </section>
-  </article>
+<article *ngIf="blogPost" class="container">
+  <header class="jumbotron rounded-0">
+    <h1 class="col-12">{{ blogPost.title | titlecase }}</h1>
+    <em class="col-12"
+      >{{ blogPost.author }} - {{ blogPost.publish_date | date: shortDate }}</em
+    >
+  </header>
+  <section class="row">
+    <p class="col-xl-10 offset-xl-1" [innerHTML]="blogPost.content"></p>
+    <hr class="col-xl-10 offset-xl-1" />
+  </section>
+  <section class="row">
+    <app-blog-comments
+      *ngIf="blogComments"
+      class="col-xl-10 offset-xl-1"
+      [comments]="blogComments"
+      (commentUpdate)="updateComment($event)"
+    ></app-blog-comments>
+    <app-comment-form
+      class="col-xl-10 offset-xl-1"
+      (updateComment)="updateComment($event)"
+      [canCloseForm]="false"
+    ></app-comment-form>
+  </section>
+</article>

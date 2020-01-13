@@ -1,17 +1,26 @@
 <section class="p-2">
-    <article *ngIf="!isUpdateVisible">
-        <h5>{{comment.user}}</h5>
-        <p class="mb-0">{{comment.content}}</p>
-        <em class="d-block">{{comment.date | date :shortDate}}</em>
-    </article>
-    <a *ngIf="!isUpdateVisible && !isFormVisible" (click)="toggleCommentForm()">
-        Reply
-    </a>
-    <a *ngIf="!isFormVisible && !isUpdateVisible" (click)="toggleUpdateForm()">
-        Edit
-    </a>
-    <a *ngIf="!isFormVisible && !isUpdateVisible" (click)="deleteComment(comment.id)">
-        Delete
-    </a>
-    <app-comment-form *ngIf="isFormVisible || isUpdateVisible" [isUpdateComment]="isUpdateVisible" [formContent]="comment" (updateComment)="updateComment($event)" (canCloseForm)="close()" ></app-comment-form>
+  <article *ngIf="!isUpdateVisible">
+    <h5>{{ comment.user }}</h5>
+    <p class="mb-0">{{ comment.content }}</p>
+    <em class="d-block">{{ comment.date | date: shortDate }}</em>
+  </article>
+  <a *ngIf="!isUpdateVisible && !isFormVisible" (click)="toggleCommentForm()">
+    Reply
+  </a>
+  <a *ngIf="!isFormVisible && !isUpdateVisible" (click)="toggleUpdateForm()">
+    Edit
+  </a>
+  <a
+    *ngIf="!isFormVisible && !isUpdateVisible"
+    (click)="deleteComment(comment.id)"
+  >
+    Delete
+  </a>
+  <app-comment-form
+    *ngIf="isFormVisible || isUpdateVisible"
+    [isUpdateComment]="isUpdateVisible"
+    [formContent]="comment"
+    (updateComment)="updateComment($event)"
+    (closeForm)="close()"
+  ></app-comment-form>
 </section>

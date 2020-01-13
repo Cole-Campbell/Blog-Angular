@@ -1,23 +1,22 @@
-@import '../../../assets/colours';
+@import "../../../assets/colours";
 
 .card {
-    background-color: $white;
-    border: 1px solid $dark-gray;
-    box-shadow: 1px 1px 1px $faded-gray;
-    transition: .5s;
+  background-color: $white;
+  border: 1px solid $dark-gray;
+  box-shadow: 1px 1px 1px $faded-gray;
+  transition: 0.5s;
 
-    &:hover {
-        cursor: pointer;
-        box-shadow: 3px 3px 3px $faded-purple;
-        transform: scale(1.02, 1.02);
-        z-index: 1;
-    }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px $faded-purple;
+    transform: scale(1.02, 1.02);
+    z-index: 1;
+  }
 
-    .card-body :last-child {
-        margin-top: 1rem;
-    }
-    h3 {
-        font-size: 1rem;
-    }
-    
+  .card-body :last-child {
+    margin-top: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
 }

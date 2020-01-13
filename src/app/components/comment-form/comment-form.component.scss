@@ -1,10 +1,10 @@
-@import '../../../assets/colours';
+@import "../../../assets/colours";
 
 div[contenteditable] {
-    max-height: 200px;
-    overflow: auto;
+  max-height: 200px;
+  overflow: auto;
 }
 
 button:disabled:hover {
-    background-color: $dark-purple;
+  background-color: $dark-purple;
 }

@@ -1,10 +1,17 @@
 <h2>Comments</h2>
-<ng-template #List let-items >
-    <ul>
-      <li *ngFor="let item of items">
-          <app-comment [comment]="item" (commentUpdate)="updateComment($event)"></app-comment>
-          <ng-container *ngTemplateOutlet="List; context:{ $implicit: item.comments }"></ng-container>
-      </li>
+<ng-template #List let-items>
+  <ul>
+    <li *ngFor="let item of items">
+      <app-comment
+        [comment]="item"
+        (commentUpdate)="updateComment($event)"
+      ></app-comment>
+      <ng-container
+        *ngTemplateOutlet="List; context: { $implicit: item.comments }"
+      ></ng-container>
+    </li>
   </ul>
 </ng-template>
-<ng-container *ngTemplateOutlet="List; context:{$implicit: comments | dataConversion }"></ng-container>
+<ng-container
+  *ngTemplateOutlet="List; context: { $implicit: comments | dataConversion }"
+></ng-container>

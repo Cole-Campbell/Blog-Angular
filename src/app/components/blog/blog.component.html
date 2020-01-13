@@ -1,12 +1,14 @@
 <div class="container boarder-right boarder-left">
-    <section class="jumbotron rounded-0">
-        <h1>Where The Bloggers Blog</h1>
-    </section>
-    {{posts}}
-    <section class="row d-flex justify-content-between">
-        <app-blog-post class="d-flex my-2 col-xl-4 col-lg-6 flex-item-stretch flex-1"
-                        *ngFor="let blogItem of blogItems"
-                        [postData]="blogItem">
-        </app-blog-post>
-    </section>
+  <section class="jumbotron rounded-0">
+    <h1>Where The Bloggers Blog</h1>
+  </section>
+  {{ posts }}
+  <section class="row d-flex justify-content-between">
+    <app-blog-post
+      class="d-flex my-2 col-xl-4 col-lg-6 flex-item-stretch flex-1"
+      *ngFor="let blogItem of blogItems"
+      [postData]="blogItem"
+    >
+    </app-blog-post>
+  </section>
 </div>

@@ -1,28 +1,28 @@
-@import '../../../assets/colours';
+@import "../../../assets/colours";
 header {
-    background-color: $dark-gray;
+  background-color: $dark-gray;
 }
 
 a {
-    color: $white;
-    text-decoration: none;
-    transition: all .2s;
-    &:hover {
-        color: $dark-purple;
-    }
+  color: $white;
+  text-decoration: none;
+  transition: all 0.2s;
+  &:hover {
+    color: $dark-purple;
+  }
 }
 
 .btn {
-    border: 1px solid transparent;
-    color: $white;
-    background-color: transparent;
-    &:hover {
-        @extend .active;
-    }
+  border: 1px solid transparent;
+  color: $white;
+  background-color: transparent;
+  &:hover {
+    @extend .active;
+  }
 }
 
 .active {
-    border: 1px solid $dark-purple;
-    color: $dark-purple;
-    background-color: $white;
+  border: 1px solid $dark-purple;
+  color: $dark-purple;
+  background-color: $white;
 }

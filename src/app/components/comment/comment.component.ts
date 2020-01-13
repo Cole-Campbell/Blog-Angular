@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CommentModel } from '../../interfaces/comment-model';
-import { CommentService } from '../../services/comment/comment.service';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { CommentModel } from "../../interfaces/comment-model";
+import { CommentService } from "../../services/comment/comment.service";
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  selector: "app-comment",
+  templateUrl: "./comment.component.html",
+  styleUrls: ["./comment.component.scss"]
 })
 export class CommentComponent implements OnInit {
   @Input() comment: CommentModel;
@@ -13,10 +13,9 @@ export class CommentComponent implements OnInit {
 
   isFormVisible: boolean = false;
   isUpdateVisible: boolean = false;
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   toggleCommentForm() {
     this.isFormVisible = !this.isFormVisible;
@@ -35,12 +34,11 @@ export class CommentComponent implements OnInit {
   }
 
   deleteComment() {
-    this.commentService.deleteComment(this.comment)
+    this.commentService.deleteComment(this.comment);
   }
 
   close() {
     this.isFormVisible = false;
     this.isUpdateVisible = false;
   }
-
 }
